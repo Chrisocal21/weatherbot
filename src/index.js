@@ -3,9 +3,26 @@ import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { readdirSync } from 'fs';
+import express from 'express';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Create a simple HTTP server for Render health checks
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Weather Bot is running! 🌤️');
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
+app.listen(PORT, () => {
+  console.log(`✅ Health check server running on port ${PORT}`);
+});
 
 // Create Discord client
 const client = new Client({

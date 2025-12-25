@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: weatherbot
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: WEATHER_CHANNEL_ID
+        sync: false
+      - key: WEATHER_POST_TIME
+        sync: false
