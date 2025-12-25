@@ -1,0 +1,5 @@
+node_modules/
+.env
+data/weather.db
+data/weather.db-journal
+.DS_Store

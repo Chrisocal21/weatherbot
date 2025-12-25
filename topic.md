@@ -1,0 +1,1 @@
+🌤️ Daily weather updates posted here every morning at 7:00 AM. Use `/weather check [city]` to check any city's weather instantly, `/weather add [city]` to add cities to daily posts (admin only), `/weather remove [city]` to remove cities (admin only), and `/weather list` to see all saved cities.
