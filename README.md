@@ -128,6 +128,34 @@ Humidity: 65% | Wind: 12 mph
 
 The `railway.json` file is already configured for automatic deployment.
 
+## Keep Your Bot Awake 🔔
+
+Free hosting services may put your bot to sleep after periods of inactivity. To prevent this, use a free uptime monitoring service to ping your bot every 10 minutes.
+
+The bot has a health check endpoint at `/health` that responds with the bot's status.
+
+### Setup with UptimeRobot (Recommended)
+
+1. **Sign up** at [UptimeRobot](https://uptimerobot.com/) (free account)
+2. **Create a new monitor:**
+   - Monitor Type: `HTTP(s)`
+   - Friendly Name: `Weather Bot`
+   - URL: `https://your-app-url.railway.app/health` (use your actual deployment URL)
+   - Monitoring Interval: `10 minutes`
+3. **Save** - UptimeRobot will now ping your bot every 10 minutes
+
+### Alternative Services
+
+- **Cron-job.org** - Free cron job service
+- **Koyeb** - Offers always-on free tier
+- **Render** - Has native health checks (see `render.yaml`)
+
+### Health Check Endpoints
+
+Your bot exposes two endpoints:
+- `GET /` - Returns "Weather Bot is running! 🌤️"
+- `GET /health` - Returns JSON: `{"status": "ok", "uptime": 12345}`
+
 ## API Limits
 
 OpenWeather free tier:
